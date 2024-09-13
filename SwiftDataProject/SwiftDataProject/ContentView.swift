@@ -9,35 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
+    @State private var showingUpcomingOnly = false
+    @State private var sortOrder = [
+        SortDescriptor(\User.name),
+        SortDescriptor(\User.joinDate)
+    ]
     
-    //Predicate converts this all into much longer, complex swift code!
-    @Query(filter: #Predicate<User> { user in
-        //user.name.contains("S") // CASE SENSITIVE!
-//        user.name.localizedStandardContains("S") && // NOT case sensitive
-//        user.city == "Los Angeles"
-        
-        //can also use "if" statements!
-        
-        if user.name.localizedStandardContains("S") {
-            if user.city == "Los Angeles" {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return false
-        }
-        // YOU HAVE TO RETURN FALSE IN AN ELSE STATEMENT IN THIS SITUATION - you can't just put "return false" at the end of the block of code
-        
-        
-    }, sort: \User.name) var users: [User]
+//  //Predicate converts this all into much longer, complex swift code!
+//    @Query(filter: #Predicate<User> { user in
+//        //user.name.contains("S") // CASE SENSITIVE!
+//        //user.name.localizedStandardContains("S") && // NOT case sensitive
+//        //user.city == "Los Angeles"
+//        
+//        //can also use "if" statements!
+//        
+//        if user.name.localizedStandardContains("S") {
+//            if user.city == "Los Angeles" {
+//                return true
+//            } else {
+//                return false
+//            }
+//        } else {
+//            return false
+//        }
+//        // YOU HAVE TO RETURN FALSE IN AN ELSE STATEMENT IN THIS SITUATION - you can't just put "return false" at the end of the block of code
+//    }, sort: \User.name) var users: [User]
     
     
     var body: some View {
         NavigationStack {
-            List(users) { user in
-                    Text(user.name)
-            }
+//            List(users) { user in
+//                    Text(user.name)
+//            }
+            //by changing this to a view instead of a list, we can show different lists of people - kind of an alternative to the query filtering outright
+            UsersView(minimumJoinDate: showingUpcomingOnly ? .now : .distantPast, sortOrder: sortOrder)
             .navigationTitle("Users")
            
             .toolbar {
@@ -55,6 +60,25 @@ struct ContentView: View {
                     modelContext.insert(second)
                     modelContext.insert(third)
                     modelContext.insert(fourth)
+                }
+                
+                Button(showingUpcomingOnly ? "Show Everyone" : "Show Upcoming") {
+                    showingUpcomingOnly.toggle()
+                }
+                
+                Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                    Picker("Sort", selection: $sortOrder) {
+                        Text("Sort by Name")
+                            .tag([
+                                SortDescriptor(\User.name),
+                                SortDescriptor(\User.joinDate)
+                            ])
+                        Text("Sort by Join Date")
+                            .tag([
+                                SortDescriptor(\User.joinDate),
+                                SortDescriptor(\User.name)
+                            ])
+                    }
                 }
             }
         }

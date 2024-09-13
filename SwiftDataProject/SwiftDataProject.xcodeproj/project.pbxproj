@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F9942152C90CB3300B9812A /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9942142C90CB3300B9812A /* UsersView.swift */; };
+		2F9E4CC82C90D009004DD7E2 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E4CC72C90D009004DD7E2 /* Job.swift */; };
 		2FF82FBE2C8F48A100F4AD33 /* SwiftDataProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF82FBD2C8F48A100F4AD33 /* SwiftDataProjectApp.swift */; };
 		2FF82FC02C8F48A100F4AD33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF82FBF2C8F48A100F4AD33 /* ContentView.swift */; };
 		2FF82FC22C8F48A200F4AD33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF82FC12C8F48A200F4AD33 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F9942142C90CB3300B9812A /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		2F9E4CC72C90D009004DD7E2 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		2FF82FBA2C8F48A100F4AD33 /* SwiftDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF82FBD2C8F48A100F4AD33 /* SwiftDataProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataProjectApp.swift; sourceTree = "<group>"; };
 		2FF82FBF2C8F48A100F4AD33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,8 +61,10 @@
 			children = (
 				2FF82FBD2C8F48A100F4AD33 /* SwiftDataProjectApp.swift */,
 				2FF82FBF2C8F48A100F4AD33 /* ContentView.swift */,
-				2FF82FCD2C8F499E00F4AD33 /* EditUserView.swift */,
+				2F9942142C90CB3300B9812A /* UsersView.swift */,
 				2FF82FCB2C8F495200F4AD33 /* User.swift */,
+				2F9E4CC72C90D009004DD7E2 /* Job.swift */,
+				2FF82FCD2C8F499E00F4AD33 /* EditUserView.swift */,
 				2FF82FC12C8F48A200F4AD33 /* Assets.xcassets */,
 				2FF82FC32C8F48A200F4AD33 /* Preview Content */,
 			);
@@ -143,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9942152C90CB3300B9812A /* UsersView.swift in Sources */,
+				2F9E4CC82C90D009004DD7E2 /* Job.swift in Sources */,
 				2FF82FC02C8F48A100F4AD33 /* ContentView.swift in Sources */,
 				2FF82FCE2C8F499E00F4AD33 /* EditUserView.swift in Sources */,
 				2FF82FBE2C8F48A100F4AD33 /* SwiftDataProjectApp.swift in Sources */,
